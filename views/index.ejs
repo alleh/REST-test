@@ -5,29 +5,51 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div id="todo">
-      <div id="status">There <span id="count"></span> to do</div>
+    <div id="post">
+      
       <ul id="list">
       </ul>
-      <form name="form">
-        <input placeholder="Type what to do" id="inputEl"/>
-        <button id="add">Add task</button>
-      </form>
-      <br/>
-      <a href="#" id="clear">Remove done tasks</a>
+
+      <div id="singlePost">
+        
+
+      </div>
+      
+      <b>
     </div>
-    <script id="todo-tpl" type="text/x-handlebars-template">
+
+    <div id="posts">
+      <ul id="list">
+      </ul>
+      
+    </div>
+    <script id="post-tpl" type="text/x-handlebars-template">
       {{#each items}}
         <li>
-          <input type="checkbox" data-id="{{id}}" {{#if done}}checked{{/if}} />
-          {{ value }}
+
+         <a href="#post/{{id}} "> {{ Title }} </a>
+         <button data-id="{{id}}" class="delete">Delete</button>
+         <button data-id="{{id}}" class="edit">Edit</button>
+       
         </li>
       {{/each}}
+
+     <form name="form">
+        <input placeholder="Title here." id="inputEl"/>
+        <input placeholder="Content here." id="inputEl"/>
+        <button id="add">Add Post</button>
+      </form>
+
+    </script>
+    <script id="postSingle" type="text/x-handlebars-template">
+
+     <h2>{{Title}}</h2> </br>
+     {{Content}} 
     </script>
     <script src="/javascripts/jquery-1.11.0.js"></script>
     <script src="/javascripts/handlebars-v1.3.0.js"></script>
     <script src="/javascripts/underscore.js"></script>
     <script src="/javascripts/backbone.js"></script>
-    <script src="/javascripts/todo.js"></script>
+    <script src="/javascripts/post.js"></script>
   </body>
 </html>

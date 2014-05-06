@@ -2,7 +2,10 @@ var fs        = require('fs')
   , path      = require('path')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
-  , sequelize = new Sequelize('todos_app', 'root', null)
+  , sequelize = new Sequelize('todos_app', 'root', 'root',  {
+      dialect: "mysql", 
+      port:    8889, 
+  })
   , db        = {}
 
 fs
