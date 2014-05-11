@@ -6,14 +6,10 @@
   </head>
   <body>
     <div id="post"></div>
-
     <div id="posts">
-      <ul id="list">
-      </ul>
-      
+      <ul id="list"></ul>  
     </div>
     <div id="NewEdit">
-      
     </div>
     <script id="post-tpl" type="text/x-handlebars-template">
       <div id="allaposts">
@@ -30,8 +26,9 @@
         </br>
         <div id="postform">
           <form name="form">
-            Title: <input placeholder="Title here." id="inputEl"/></br>
-            Content: <input placeholder="Content here." id="inputEl"/></br>
+            Title:</br> <input placeholder="Title here." id="inputEl"/></br>
+            Content:
+            <textarea rows="6" cols="30"input placeholder="Whats on your mind?"></textarea>
             <button id="add">Add Post</button>
 
           </form>

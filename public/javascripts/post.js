@@ -28,15 +28,11 @@ var PostListView = Backbone.View.extend({
 
         var model = this.collection.get(e.target.dataset.id);
         console.log(e.target);
-        console.log(model);
 
-        //that = this;
         model.destroy({
             success: function() {
-            console.log("borta!");
 
-            router.navigate()
-
+                console.log("borta!");
             }
         });
     },     
@@ -68,10 +64,7 @@ var PostListView = Backbone.View.extend({
     
         html = this.template({
             items: this.collection.toJSON(),
-            //items: posts.toJSON(),
-            
         });
-        //console.log(this.collection.toJSON());
         this.$el.find("#list").html(html);
         
         return this;
@@ -83,38 +76,18 @@ var ShowPostView = Backbone.View.extend({
 
     
     initialize: function() {
-        console.log("SHOW POST JEW HERE OLOL");
+
         //console.log(this.collection);
         console.log(this.model);
         //var model = this.model;
         //this.collection.bind("add remove change", _.bind(this.render, this))
         //this.model.on('change', this.render(),this);
-        console.log("this model " + this.model);
-        console.log("showpost, model " + this.model);
-        //this.model.bind("add remove change", _.bind(this.render, this));
         console.log("single post view yo init");
     },
     template: Handlebars.compile(($("#postSingle").html())),
 
     events: {
-        //'submit form' : 'UpdatePost',
-        'click .postdelete' : 'postdelete',
-        //'click .Edit' : 'UpdatePost'
-    },
-
-    postdelete: function(e)
-    {   
-     
-        
-    },
-
-    UpdatePost: function(e)
-    {
-        e.preventDefault;
-        console.log(e.target.id);
-        console.log("edit edit");
-
-    },           
+    },  
         
     render: function() 
     {
@@ -135,7 +108,7 @@ var NewEditPostView = Backbone.View.extend({
     template: Handlebars.compile(($("#EditNew").html())),
 
     events: {
-        
+
         'submit submit' : 'editPost',
     },
 
@@ -154,17 +127,13 @@ var NewEditPostView = Backbone.View.extend({
 });
 
 var posts = new PostCollection();
-
 var postListView = new PostListView({
   el: "#posts",
   collection: posts
 });
 var showPostView = new ShowPostView({ el: "#post", collection: posts});
-
 var newEditPostView = new NewEditPostView({el: "#NewEdit", collection: posts});
 
-var PostItem = new Post();
-postItem = new Post
 var PostRoutes = Backbone.Router.extend({
 
   routes: {
@@ -175,44 +144,27 @@ var PostRoutes = Backbone.Router.extend({
   },
 
   index: function() {
-    posts.fetch();
-    //var PostList = new PostListView({
-      //  el: "#post",
-        //collection: posts
-    //}).render();
-    //this.navigate("", {trigger: true});  
-    
+    posts.fetch();   
     postListView.render();
-    //showPostView.hide
     console.log("index page renderad");
   },
   show: function(id) {
-    //posts.fetch();
-    
+     
     //this.navigate("post/" + id, {trigger: true}); 
     postListView.remove();
     var model = posts.get(id);
     showPostView.model = model;
-    //var postc = new PostCollection({url: "/posts/" + id});
-
-    
-    showPostView.model = model;
+    console.log("showPostView model");
+    console.log(showPostView.model);
     showPostView.render();  
-    
-    //this.navigate("/post/" + id, {trigger: true});
    // $("#posts").hide();
 
     console.log("printar model here");
-    console.log(model);
     console.log(showPostView.model);
   },
-  new: function() {
-
-    //newEditPostView.render();
-    console.log("new post");
-  },
-
+ 
   edit: function(id) {
+
     $('#post').hide();
     console.log("edit form here");
     console.log(id);
@@ -222,28 +174,13 @@ var PostRoutes = Backbone.Router.extend({
     newEditPostView.model = model;
     console.log(newEditPostView.model);
     newEditPostView.render();
-    
-
   }
 
   
 
 });
 var router = new PostRoutes();
- //Backbone.history.start();
-
-router.on('route:index', function() {
-           
-    })
-router.on('route:show', function(id) {
-       
-    })
-
 Backbone.history.start({});
-//Backbone.history.start({ pushState: true });
-/*var PostSingle = new ShowPostView({
-        el: "singlePost",
-        collection: posts
-    }).render(); */
+
 
 
