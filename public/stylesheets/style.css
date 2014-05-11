@@ -11,3 +11,45 @@ a {
 #todo ul { padding: 0;}
 #todo li { list-style: none; margin:0}
 #todo li input { margin-right: 8px; }
+
+#postform {
+	
+	/*background-color: green; */
+	width: 200px;
+	float:left;	
+}
+
+#posts{
+	/*background-color: blue; */
+	width: 900px;
+}
+
+#post{
+	width: 900px;
+	/*background-color: yellow; */
+}
+
+#allaposts {
+	/*background-color: grey; */
+	list-style-type: none;
+	float: right;
+	width: 550px;
+
+}
+
+a {
+	color: black;
+
+}
+
+#Single {
+	/*background-color: green; */
+	float: right;
+	width: 550px;
+}
+
+#NewEdit {
+	width: 300px;
+	margin: 0 auto;
+	float:left;
+}
