@@ -12,6 +12,16 @@ a {
 #todo li { list-style: none; margin:0}
 #todo li input { margin-right: 8px; }
 
+
+#list {
+	width:960px;
+	height: 100%;
+
+}
+#app {
+
+	width: 100%;
+}
 #postform {
 	
 	/*background-color: green; */
@@ -33,7 +43,8 @@ a {
 	/*background-color: grey; */
 	list-style-type: none;
 	float: right;
-	width: 550px;
+	width: 700px;
+	
 
 }
 
@@ -45,7 +56,8 @@ a {
 #Single {
 	/*background-color: green; */
 	float: right;
-	width: 550px;
+	width: 100%;
+
 }
 
 #NewEdit {

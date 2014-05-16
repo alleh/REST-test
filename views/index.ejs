@@ -5,12 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div id="post"></div>
-    <div id="posts">
-      <ul id="list"></ul>  
-    </div>
-    <div id="NewEdit">
-    </div>
+    <div id="app"></div>
     <script id="post-tpl" type="text/x-handlebars-template">
       <div id="allaposts">
         {{#each items}}
@@ -18,7 +13,7 @@
           <h3> <a href="#post/{{id}} "> {{ Title }} </a></h3>
           <p> {{Content}} </p>
            <button data-id="{{id}}" class="delete">Delete</button>
-           <button data-id="Edit"><a href="#post/{{id}}/edit "> Edit</a></button>
+           <button data-id="{{id}}"><a href="#post/{{id}}/edit "> Edit</a></button>
           </li>
           </br>
         {{/each}}
@@ -45,11 +40,10 @@
 
     <script id="EditNew" type="text/x-handlebars-template">
       <a href="/"> Back </a></br>
-      <form name="form">
+      <form name="editform">
         Title:  <input value="{{Title}}" id="inputEl"/></br>
-        Content: <input value="{{Content}}" id="inputEl"/></br>
-        <button id="Edit">Edit</button>
-        <input type="submit" value="Submit">
+        <textarea rows="10" cols="40">{{Content}}</textarea>
+        <button type="submit" data-id="{{id}}">Edit</button>
       </form>
     
     </script>
